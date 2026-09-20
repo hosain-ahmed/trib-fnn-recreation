@@ -1,0 +1,8 @@
+### DAY 2 : 
+Dummy DImensions Chosen are : 
+BATCH_SIZE = 4
+SEQ_LEN = 20
+VOCAB_SIZE = 1000
+EMBED_DIM = 64
+HIDDEN_SIZE = 128
+CNN_CHANNELS = 128
