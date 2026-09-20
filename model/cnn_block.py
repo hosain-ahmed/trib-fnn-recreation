@@ -1,36 +1,44 @@
 import torch
 import torch.nn as nn
 
-BATCH_SIZE = 4 
-SEQ_LEN = 20
-VOCAB_SIZE = 1000
-EMBED_DIM = 64
-
-x = torch.randint(0,VOCAB_SIZE,(BATCH_SIZE,SEQ_LEN))
-print("Input: ", x.shape)
-
-embedding = nn.Embedding(num_embeddings=VOCAB_SIZE, embedding_dim=EMBED_DIM)
-
-x = embedding(x)
-print("After embedding:", x.shape)
-
-x =x.transpose (1,2)
-print("Before Conv1D:", x.shape)
-
-conv = nn.Conv1d(in_channels= 64,out_channels=128,kernel_size=3,padding=1)
-x=conv(x)
-print("After Conv1D:", x.shape)
-
-bn= nn.BatchNorm1d(128)
-relu = nn.ReLU()
-
-x =bn(x)
-print("After BatchNorm:", x.shape)
-
-x= relu(x)
-print("After ReLU:", x.shape)
-
-
-
-
-
+class CNNBlock(nn.Module):
+    def __init__(self, vocab_size, embedding_dim, out_channels):
+        super().__init__()
+        
+        self.embedding = nn.Embedding(
+            vocab_size,
+            embedding_dim
+        )
+        
+        self.conv = nn.Conv1d(
+            embedding_dim,
+            out_channels,
+            kernel_size = 3,
+            padding = 1
+        )
+        
+        self.bn = nn.BatchNorm1d(out_channels)
+        self.relu = nn.ReLU()
+    
+    def forward(self,x):
+        print("Input:", x.shape)
+        
+        x=self.embedding(x)
+        print("Embedding:", x.shape)
+        
+        x = x.transpose(1,2)
+        print("Transpose: ")
+        
+        x = self.conv(x)
+        print("Conv1D:", x.shape )
+        
+        x=self.bn(x)
+        print("BatchNorm:", x.shape)
+        
+        x = self.relu(x)
+        print("ReLU:", x.shape)
+        
+        
+        return x
+    
+    
