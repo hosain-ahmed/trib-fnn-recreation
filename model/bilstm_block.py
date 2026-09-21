@@ -24,3 +24,5 @@ class BiLSTMBlock(nn.Module):
         print ("cell:",cell.shape)
 
         return output
+    
+    ## Cat is Cute , Cat -> is -> Cute , Cute -> is -> Cat 

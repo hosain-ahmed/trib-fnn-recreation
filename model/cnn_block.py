@@ -18,7 +18,7 @@ class CNNBlock(nn.Module):
         )
         
         self.bn = nn.BatchNorm1d(out_channels)
-        self.relu = nn.ReLU()
+        self.relu = nn.ReLU() ### Non linearity 
     
     def forward(self,x):
         print("Input:", x.shape)
