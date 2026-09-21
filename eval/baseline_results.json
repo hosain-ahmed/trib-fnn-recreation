@@ -1,0 +1,26 @@
+[
+  {
+    "model": "cnn",
+    "epochs_requested": 1,
+    "batches_trained": 50,
+    "last_training_loss": 1.77928,
+    "validation_accuracy": 0.449018,
+    "device": "cuda"
+  },
+  {
+    "model": "bilstm",
+    "epochs_requested": 1,
+    "batches_trained": 50,
+    "last_training_loss": 1.309635,
+    "validation_accuracy": 0.467701,
+    "device": "cuda"
+  },
+  {
+    "model": "gru",
+    "epochs_requested": 1,
+    "batches_trained": 50,
+    "last_training_loss": 1.41162,
+    "validation_accuracy": 0.447752,
+    "device": "cuda"
+  }
+]
