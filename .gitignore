@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+
+# Generated tokenized tensors and processed datasets
+*.pt
+data/processed/*
+processed/
+
+# Local/raw datasets are downloaded or generated separately
+data/raw/*
+
+# Keep directory placeholders in Git when needed
+!data/processed/.gitkeep
+!data/raw/.gitkeep
